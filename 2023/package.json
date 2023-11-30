@@ -1,0 +1,17 @@
+{
+  "name": "aoc",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "bun-types": "latest",
+    "eslint": "^8.54.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "lint": "bun eslint src/* --fix",
+    "solve": "bun run src/index.ts"
+  }
+}
