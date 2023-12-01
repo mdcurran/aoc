@@ -1,3 +1,4 @@
+import { readableStreamToText } from "bun";
 import { existsSync } from "node:fs";
 import path from "node:path";
 
@@ -14,7 +15,7 @@ async function run(day: string) {
   }
 
   const child = Bun.spawn(["bun", "run", filepath]);
-  const result = await new Response(child.stdout).text();
+  const result = await readableStreamToText(child.stdout);
   console.log(result);
 }
 
