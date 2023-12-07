@@ -1,8 +1,8 @@
-import { join } from "path";
+import { fetchInput } from "../../io";
 
-function first(contents: string[]): number {
+function first(input: string[]): number {
   let total = 0;
-  for (const line of contents) {
+  for (const line of input) {
     if (line === "") {
       continue;
     }
@@ -14,20 +14,19 @@ function first(contents: string[]): number {
       }
     }
 
-    for (let j = contents.length - 1; current.length < 2; j--) {
+    for (let j = input.length - 1; current.length < 2; j--) {
       if (isNumber(line[j])) {
         current += line[j];
       }
     }
 
     total += Number(current);
-    current = "";
   }
 
     return total;
 }
 
-function second(contents: string[]): number {
+function second(input: string[]): number {
   const replacements = new Map<string,string>([
     ["one", "o1e"],
     ["two", "t2o"],
@@ -40,21 +39,20 @@ function second(contents: string[]): number {
     ["nine", "n9e"],
   ]);
 
-  for (let i = 0; i < contents.length; i++) {
+  for (let i = 0; i < input.length; i++) {
     for (const [k, v] of replacements) {
-      contents[i] = contents[i].replaceAll(k, v);
+      input[i] = input[i].replaceAll(k, v);
     }
   }
 
-  return first(contents);
+  return first(input);
 }
 
 function isNumber(c: string): boolean {
   return c >= "0" && c <= "9";
 }
 
-const file = Bun.file(join(import.meta.dir, "input.txt"));
-const contents = (await file.text()).split("\n");
+const input = await fetchInput(import.meta.dir);
 
-console.log(`first: ${first(contents)}`);
-console.log(`second: ${second(contents)}`);
+console.log(`first: ${first(input)}`);
+console.log(`second: ${second(input)}`);
