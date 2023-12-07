@@ -52,7 +52,7 @@ function isNumber(c: string): boolean {
   return c >= "0" && c <= "9";
 }
 
-const input = await fetchInput(import.meta.dir);
+const input = fetchInput(import.meta.dir);
 
 console.log(`first: ${first(input)}`);
 console.log(`second: ${second(input)}`);

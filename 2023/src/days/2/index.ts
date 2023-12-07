@@ -67,7 +67,7 @@ function second(input: string[]): number {
   return powers;
 }
 
-const input = await fetchInput(import.meta.dir);
+const input = fetchInput(import.meta.dir);
 
 console.log(`first: ${first(input)}`);
 console.log(`second: ${second(input)}`);
