@@ -46,7 +46,7 @@ func DayOneFirst() error {
 		total += abs(left[i], right[i])
 	}
 
-	fmt.Println(total)
+	fmt.Printf("Day 1 - Part 1: %d\n", total)
 
 	return nil
 }
@@ -92,7 +92,7 @@ func DayOneSecond() error {
 		total += n * x
 	}
 
-	fmt.Println(total)
+	fmt.Printf("Day 1 - Part 2: %d\n", total)
 
 	return nil
 }
